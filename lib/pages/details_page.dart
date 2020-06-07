@@ -76,7 +76,7 @@ class DetailsPage extends StatelessWidget {
 
   Widget buildArticleHeading() {
     return Hero(
-      tag: _article.title,
+      tag: _article.id,
       child: ListTile(
         contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
         title: Text(
