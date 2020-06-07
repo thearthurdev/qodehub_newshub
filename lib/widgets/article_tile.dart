@@ -4,9 +4,9 @@ import 'package:qodehub_newshub/models/news_article_model.dart';
 import 'package:qodehub_newshub/pages/details_page.dart';
 
 class ArticleTile extends StatelessWidget {
-  final NewsArticle article;
+  final NewsArticle _article;
 
-  const ArticleTile(this.article);
+  const ArticleTile(this._article);
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +18,19 @@ class ArticleTile extends StatelessWidget {
         // ShowUp widget animates its child when rendering to make it 'show up'
         // ShowUp direction can be changed as desired
         return Hero(
-          tag: article.title,
+          tag: _article.title,
           child: ListTile(
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
             title: Text(
-              article.title,
+              _article.title,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),
             ),
             subtitle: Padding(
               padding: const EdgeInsets.only(top: 8.0),
-              child: Text(article.publisher),
+              child: Text(_article.publisher),
             ),
             trailing: Icon(Icons.chevron_right),
           ),
@@ -38,7 +38,7 @@ class ArticleTile extends StatelessWidget {
       },
       openBuilder: (context, action) {
         // Opens Details page when ListTile is tapped
-        return DetailsPage(article);
+        return DetailsPage(_article);
       },
     );
   }

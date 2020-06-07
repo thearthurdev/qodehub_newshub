@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:qodehub_newshub/models/news_article_model.dart';
 
 class DetailsPage extends StatelessWidget {
-  final NewsArticle article;
+  final NewsArticle _article;
 
-  const DetailsPage(this.article);
+  const DetailsPage(this._article);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class DetailsPage extends StatelessWidget {
         appBar: AppBar(
           title: Padding(
             padding: const EdgeInsets.only(right: 40.0),
-            child: Text(article.title),
+            child: Text(_article.title),
           ),
           centerTitle: true,
           leading: IconButton(
@@ -47,12 +47,12 @@ class DetailsPage extends StatelessWidget {
       height: 260.0,
       color: Colors.grey[300],
       // Check if article has image and change child accordingly
-      child: article.image == null || article.image == ''
+      child: _article.image == null || _article.image == ''
           ? Center(
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Text(
-                  article.publisher,
+                  _article.publisher,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.grey[350],
@@ -68,7 +68,7 @@ class DetailsPage extends StatelessWidget {
               // loaded image fades in rather than jumping out
               child: FadeInImage.assetNetwork(
                 placeholder: 'assets/shimmer.gif',
-                image: article.image,
+                image: _article.image,
               ),
             ),
     );
@@ -76,18 +76,18 @@ class DetailsPage extends StatelessWidget {
 
   Widget buildArticleHeading() {
     return Hero(
-      tag: article.title,
+      tag: _article.title,
       child: ListTile(
         contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
         title: Text(
-          article.title,
+          _article.title,
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
         subtitle: Padding(
           padding: const EdgeInsets.only(top: 8.0),
-          child: Text(article.publisher),
+          child: Text(_article.publisher),
         ),
       ),
     );
@@ -97,7 +97,7 @@ class DetailsPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Text(
-        article.text,
+        _article.text,
         style: TextStyle(
           fontSize: 16.0,
           height: 1.5,

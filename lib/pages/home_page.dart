@@ -13,31 +13,31 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   // boolean to track whether the app is trying to reload data
-  bool isRetrying;
+  bool _isRetrying;
   // boolean to track the scroll direction
-  bool isScrollDown;
+  bool _isScrollDown;
 
-  ScrollController scrollController;
+  ScrollController _scrollController;
 
   @override
   void initState() {
     super.initState();
-    isRetrying = false;
-    isScrollDown = true;
+    _isRetrying = false;
+    _isScrollDown = true;
 
     // Listening to scroll controller to react to scroll events
-    scrollController = ScrollController();
-    scrollController.addListener(handleScrolling);
+    _scrollController = ScrollController();
+    _scrollController.addListener(handleScrolling);
   }
 
-  // Change the value of isScrollDown boolean depending on scroll direction
+  // Change the value of _isScrollDown boolean depending on scroll direction
   void handleScrolling() {
-    if (scrollController.position.userScrollDirection ==
+    if (_scrollController.position.userScrollDirection ==
         ScrollDirection.forward) {
-      if (isScrollDown == true) setState(() => isScrollDown = false);
-    } else if (scrollController.position.userScrollDirection ==
+      if (_isScrollDown == true) setState(() => _isScrollDown = false);
+    } else if (_scrollController.position.userScrollDirection ==
         ScrollDirection.reverse) {
-      if (isScrollDown == false) setState(() => isScrollDown = true);
+      if (_isScrollDown == false) setState(() => _isScrollDown = true);
     }
   }
 
@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> {
   Widget buildBody(List<NewsArticle> articles) {
     return SafeArea(
       child: CustomScrollView(
-        controller: scrollController,
+        controller: _scrollController,
         slivers: <Widget>[
           SliverAppBar(
             brightness: Brightness.light,
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                   delay: 100 + (10 * i),
                   // Changing the direction the child shows up from based on the user's
                   // scroll direction to simulate an inertia effect
-                  direction: isScrollDown ? ShowUpFrom.bottom : ShowUpFrom.top,
+                  direction: _isScrollDown ? ShowUpFrom.bottom : ShowUpFrom.top,
                   child: ArticleTile(articles[i]),
                 );
               },
@@ -176,7 +176,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget buildRetryButton() {
     // Check if data is reloading and change widget accordingly
-    return isRetrying
+    return _isRetrying
         ? CircularProgressIndicator()
         : RaisedButton(
             child: Text(
@@ -187,7 +187,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               // Call setState to restart FutureBuilder
               setState(() {
-                isRetrying = true;
+                _isRetrying = true;
               });
             },
           );

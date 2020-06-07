@@ -37,7 +37,7 @@ class NewsLogic {
         );
       }
     } catch (e) {
-      // Print out what error occured while trying to get the data
+      // Print out what error occurred while trying to get the data
       print(e);
     }
 
