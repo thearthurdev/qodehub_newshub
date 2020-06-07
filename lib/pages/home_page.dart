@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:qodehub_newshub/logic/news_logic.dart';
 import 'package:qodehub_newshub/models/news_article_model.dart';
 import 'package:qodehub_newshub/widgets/article_tile.dart';
+import 'package:qodehub_newshub/widgets/show_up_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,11 +14,28 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // boolean to track whether the app is trying to reload data
   bool isRetrying;
+  bool isScrollDown;
+
+  ScrollController scrollController;
 
   @override
   void initState() {
     super.initState();
     isRetrying = false;
+    isScrollDown = true;
+
+    scrollController = ScrollController();
+    scrollController.addListener(handleScrolling);
+  }
+
+  void handleScrolling() {
+    if (scrollController.position.userScrollDirection ==
+        ScrollDirection.forward) {
+      if (isScrollDown == true) setState(() => isScrollDown = false);
+    } else if (scrollController.position.userScrollDirection ==
+        ScrollDirection.reverse) {
+      if (isScrollDown == false) setState(() => isScrollDown = true);
+    }
   }
 
   @override
@@ -63,6 +82,7 @@ class _HomePageState extends State<HomePage> {
   Widget buildBody(List<NewsArticle> articles) {
     return SafeArea(
       child: CustomScrollView(
+        controller: scrollController,
         slivers: <Widget>[
           SliverAppBar(
             brightness: Brightness.light,
@@ -82,7 +102,11 @@ class _HomePageState extends State<HomePage> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, i) {
-                return ArticleTile(article: articles[i], index: i);
+                return ShowUp(
+                  delay: 100 + (10 * i),
+                  direction: isScrollDown ? ShowUpFrom.bottom : ShowUpFrom.top,
+                  child: ArticleTile(articles[i]),
+                );
               },
               childCount: articles.length,
             ),
@@ -146,6 +170,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget buildRetryButton() {
+    // Check if data is reloading and change widget accordingly
     return isRetrying
         ? CircularProgressIndicator()
         : RaisedButton(

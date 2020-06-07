@@ -2,13 +2,11 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:qodehub_newshub/models/news_article_model.dart';
 import 'package:qodehub_newshub/pages/details_page.dart';
-import 'package:qodehub_newshub/widgets/show_up_widget.dart';
 
 class ArticleTile extends StatelessWidget {
   final NewsArticle article;
-  final int index;
 
-  const ArticleTile({this.article, this.index});
+  const ArticleTile(this.article);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +17,8 @@ class ArticleTile extends StatelessWidget {
       closedBuilder: (context, action) {
         // ShowUp widget animates its child when rendering to make it 'show up'
         // ShowUp direction can be changed as desired
-        return ShowUp(
-          delay: 100 * index,
+        return Hero(
+          tag: article.title,
           child: ListTile(
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),

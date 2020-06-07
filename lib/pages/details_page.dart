@@ -46,21 +46,26 @@ class DetailsPage extends StatelessWidget {
       width: double.infinity,
       height: 260.0,
       color: Colors.grey[300],
+      // Check if article has image and change child accordingly
       child: article.image == null || article.image == ''
           ? Center(
-              child: Text(
-                article.publisher,
-                style: TextStyle(
-                  color: Colors.grey[350],
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.bold,
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Text(
+                  article.publisher,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey[350],
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             )
           : FittedBox(
               fit: BoxFit.fill,
               // Using a gif placeholder while network image loads
-              // loaded inage fades in rather than jumping out
+              // loaded image fades in rather than jumping out
               child: FadeInImage.assetNetwork(
                 placeholder: 'assets/shimmer.gif',
                 image: article.image,
@@ -70,17 +75,20 @@ class DetailsPage extends StatelessWidget {
   }
 
   Widget buildArticleHeading() {
-    return ListTile(
-      contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-      title: Text(
-        article.title,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
+    return Hero(
+      tag: article.title,
+      child: ListTile(
+        contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+        title: Text(
+          article.title,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
         ),
-      ),
-      subtitle: Padding(
-        padding: const EdgeInsets.only(top: 8.0),
-        child: Text(article.publisher),
+        subtitle: Padding(
+          padding: const EdgeInsets.only(top: 8.0),
+          child: Text(article.publisher),
+        ),
       ),
     );
   }
