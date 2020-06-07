@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // boolean to track whether the app is trying to reload data
   bool isRetrying;
+  // boolean to track the scroll direction
   bool isScrollDown;
 
   ScrollController scrollController;
@@ -24,10 +25,12 @@ class _HomePageState extends State<HomePage> {
     isRetrying = false;
     isScrollDown = true;
 
+    // Listening to scroll controller to react to scroll events
     scrollController = ScrollController();
     scrollController.addListener(handleScrolling);
   }
 
+  // Change the value of isScrollDown boolean depending on scroll direction
   void handleScrolling() {
     if (scrollController.position.userScrollDirection ==
         ScrollDirection.forward) {
@@ -104,6 +107,8 @@ class _HomePageState extends State<HomePage> {
               (context, i) {
                 return ShowUp(
                   delay: 100 + (10 * i),
+                  // Changing the direction the child shows up from based on the user's
+                  // scroll direction to simulate an inertia effect
                   direction: isScrollDown ? ShowUpFrom.bottom : ShowUpFrom.top,
                   child: ArticleTile(articles[i]),
                 );
