@@ -18,7 +18,7 @@ class ArticleTile extends StatelessWidget {
         // ShowUp widget animates its child when rendering to make it 'show up'
         // ShowUp direction can be changed as desired
         return Hero(
-          tag: _article.title,
+          tag: _article.id,
           child: ListTile(
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
