@@ -10,7 +10,7 @@ A simple news app with some cool-looking animations.
 <img src="https://drive.google.com/uc?export=view&id=1-3h5h66KTE6mL0ocn3MWJQz-vG3u8Psw" width="300" height="540"> <img src="https://drive.google.com/uc?export=view&id=1-3GnRBUOZLh5wgJQR0gKGtfotTumaCpV" width="300" height="540">
 
 #### Video Demo
-Click [here](https://drive.google.com/file/d/1nw8kjW1gW1U6Q04906AU-WAyVObFMsXI/view?usp=sharing) to watch a video demo of NewsHub in acton.
+Click [here](https://vimeo.com/426843540) to watch a video demo of NewsHub in acton.
 __*Please adjust the resolution if the video looks blurry*__
 
 #### Download the APK
