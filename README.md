@@ -1,16 +1,40 @@
-# qodehub_newshub
+<img src="https://drive.google.com/uc?export=view&id=1UfWiYqaNb0GasIkBDJP-GvY3Bd9PmCHO" width="140" height="140">
 
-A new Flutter project.
+# NewsHub
 
-## Getting Started
+A simple news app with some cool-looking animations.
 
-This project is a starting point for a Flutter application.
+*My solution to the QodeHub Internship Challenge*
 
-A few resources to get you started if this is your first Flutter project:
+#### Screenshots
+<img src="https://drive.google.com/uc?export=view&id=1-3h5h66KTE6mL0ocn3MWJQz-vG3u8Psw" width="300" height="540"> <img src="https://drive.google.com/uc?export=view&id=1-3GnRBUOZLh5wgJQR0gKGtfotTumaCpV" width="300" height="540">
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+#### Video Demo
+Click [here](https://drive.google.com/file/d/1nw8kjW1gW1U6Q04906AU-WAyVObFMsXI/view?usp=sharing) to watch a video demo of NewsHub in acton.
+__*Please adjust the resolution if the video looks blurry*__
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### Download the APK
+- [NewsHub arm64 - 64bit](https://drive.google.com/file/d/1qxj3Dm2GhqJW-ExjfShUXQsENOduGxX7/view?usp=sharing)
+- [NewsHub armeabi - 32bit](https://drive.google.com/file/d/1SQlWZZNBN2pE8fJa4YNT9GnzwU2MB7_4/view?usp=sharing)
+
+## How Does It Work?
+
+#### Framework
+NewsHub is built with the **Flutter SDK** in the **Dart** programming language. This allows NewsHub to be deployed on multiple platforms with the same codebase and minimal platform setup.
+
+#### Backend
+The app is powered by [this](https://learnappmaking.com/ex/news/articles/Apple?secret=CHWGk3OTwgObtQxGqdLvVhwji6FsYm95oe87o3ju) backend. The backend supplies a summary of 20 news articles in **JSON** format which includes data about the id, title, author, publisher, date, etc. of each article. 
+This data is retrieved with the help of the [http package](https://pub.dev/packages/http) provided by the Flutter team.
+
+Error checking and handling is implemented at various parts of the app because when dealing with any form of data transfer, *especially over the internet*, things can go wrong.
+
+UI states are built for the various stages of data retrieval. These are the loading, error, empty and complete states.
+
+#### Animations
+The app utilizes various animations and transitions to give a better user experience. Some of these animations serve as **visual guides**, guiding the user's attention to the flow of the app. Others smoothen otherwise jarring state changes in the UI, for example the fade-in of the article's image once it is loaded.
+
+Most of the animations are accomplished using in-built Flutter widgets and the [animations package](https://pub.dev/packages/animations) provided by the Flutter team.
+
+##### P.S.
+Feel free to clone and mess around. Pull requests are welcome. There's a lot of data from the backend that isn't being used as per the requirements of the challenge but they can make the app's UI richer.
+
