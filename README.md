@@ -1,4 +1,4 @@
-<img src="https://drive.google.com/uc?export=view&id=1UfWiYqaNb0GasIkBDJP-GvY3Bd9PmCHO" width="140" height="140">
+<img src="images/newshub1.png" width="140">
 
 # NewsHub
 
@@ -7,7 +7,7 @@ A simple news app with some cool-looking animations.
 *My solution to the QodeHub Internship Challenge*
 
 #### Screenshots
-<img src="https://drive.google.com/uc?export=view&id=1-3h5h66KTE6mL0ocn3MWJQz-vG3u8Psw" width="300" height="540"> <img src="https://drive.google.com/uc?export=view&id=1-3GnRBUOZLh5wgJQR0gKGtfotTumaCpV" width="300" height="540">
+<img src="images/screenshot1.jpg" width="300"> <img src="images/screenshot2.jpg" width="300">
 
 #### Video Demo
 Click [here](https://vimeo.com/426843540) to watch a video demo of NewsHub in acton.
