@@ -6,14 +6,15 @@ A simple news app with some cool-looking animations.
 
 *My solution to the QodeHub Internship Challenge*
 
-#### Screenshots
+#### Showcase
 | Homepage | | Details Page |
 | :---: | --- | :---: |
 | <img src="images/screenshot1.jpg" width="300"> || <img src="images/screenshot2.jpg" width="300"> |
 | Simple homepage layout that lists <br> the latest news articles || Selecting a news article opens <br> it to show more information |
 
-#### GIF Demo
-<img src="images/newshub_demo.gif" width="300">
+| GIF Demo |
+| :---: | 
+| <img src="images/newshub_demo.gif" width="300"> |
 
 #### Video Demo
 Click [here](https://vimeo.com/426843540) to watch a video demo of NewsHub in acton.
